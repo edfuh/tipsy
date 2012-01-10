@@ -26,6 +26,10 @@
                 $tip[0].className = 'tipsy'; // reset classname in case of dynamic gravity
                 $tip.remove().css({top: 0, left: 0, visibility: 'hidden', display: 'block'}).prependTo(document.body);
                 
+                if (this.options.maxWidth) {
+                    $tip.find('.tipsy-inner').css({'max-width':this.options.maxWidth});
+                }
+                
                 var pos = $.extend({}, this.$element.offset(), {
                     width: this.$element[0].offsetWidth || 0,
                     height: this.$element[0].offsetHeight || 0
@@ -185,6 +189,7 @@
         gravity: 'n',
         html: false,
         live: false,
+        maxWidth: 0,
         offset: 0,
         opacity: 0.8,
         title: 'title',
